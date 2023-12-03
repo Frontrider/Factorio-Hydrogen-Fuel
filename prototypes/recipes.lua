@@ -41,8 +41,7 @@ data:extend({
     order = "a[liquid]-c[hydrogen]",
     allow_decomposition = false,
     icon_size = 64
-  },
-
+  }--[[
   {
     type = "recipe",
     pollution = 0,
@@ -70,7 +69,7 @@ data:extend({
     order = "a[gas]-c[hydrogen]",
     allow_decomposition = true,
     icon_size = 32
-  },
+  }, ]],
   {
     type = "recipe",
     pollution = 0,
