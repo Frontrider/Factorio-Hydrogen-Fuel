@@ -114,7 +114,7 @@ data:extend({
   },
   {
     type = "technology",
-    name = "hydrogen-cell",
+    name = Hydrogen_fuel_cell_name,
     icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/hydrogen-cell.png",
     icon_size = 64,
     prerequisites = { "hydrogen-metallification", "rocket-fuel", "explosives", "battery" },
@@ -122,10 +122,36 @@ data:extend({
     {
       {
         type = "unlock-recipe",
-        recipe = "hydrogen-cell"
+        recipe = Hydrogen_fuel_cell_name
+      }
+    },
+    unit =
+    {
+      count = 300,
+      ingredients = {
+        { "automation-science-pack", 20 },
+        { "chemical-science-pack",   10 },
+        { "utility-science-pack",    10 }
+      },
+      time = 5
+    },
+
+    order = "c-a"
+  },
+  {
+    type = "technology",
+    name = "hybrid-nuclear-fuel",
+    icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/hybrid-fuel-cell.png",
+    icon_size = 64,
+    prerequisites = { "hydrogen-metallification","nuclear-power", "fusion-reactor-equipment" },
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "hybrid-fuel-cell"
       }, {
       type = "unlock-recipe",
-      recipe = "empty-hydrogen-cell"
+      recipe = "deuterium-processing"
     }
     },
     unit =

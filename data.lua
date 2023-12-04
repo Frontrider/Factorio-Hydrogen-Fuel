@@ -1,3 +1,4 @@
+require("prototypes.compat")
 require("prototypes.items")
 require("prototypes.liquid")
 require("prototypes.recipes")

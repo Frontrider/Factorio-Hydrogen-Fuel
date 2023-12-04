@@ -8,11 +8,11 @@ data:extend({
     energy_required = 5,
     ingredients =
     {
-      { type = "fluid", name = "gas-hydrogen",       amount = 10 }
+      { type = "fluid", name = Hydrogen_name, amount = 10 }
     },
     results =
     {
-      { type = "fluid", name = "liquid-hydrogen",    amount = 10 }
+      { type = "fluid", name = "liquid-hydrogen", amount = 10 }
     },
     icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/liquid-hydrogen.png",
     subgroup = "fluid-recipes",
@@ -29,7 +29,7 @@ data:extend({
     energy_required = 10,
     ingredients =
     {
-      { type = "fluid", name = "gas-hydrogen", amount = 40 },
+      { type = "fluid", name = Hydrogen_name, amount = 40 },
       { type = "item",  name = "coal",         amount = 10 },
     },
     results =
@@ -41,7 +41,7 @@ data:extend({
     order = "a[liquid]-c[hydrogen]",
     allow_decomposition = false,
     icon_size = 64
-  }--[[
+  },
   {
     type = "recipe",
     pollution = 0,
@@ -51,25 +51,50 @@ data:extend({
     energy_required = 1,
     ingredients =
     {
-      { type = "fluid", name = "gas-hydrogen", amount = 10 },
-      { type = "item", name = "uranium-238", amount = 10 },
-      { type = "item", name = "uranium-235", amount = 1 }
+      { type = "fluid", name = Hydrogen_name, amount = 10 },
+      { type = "item",  name = "uranium-238",  amount = 10 },
+      { type = "item",  name = "uranium-235",  amount = 1 }
     },
     results =
     {
-      { type = "fluid", name = "gas-hydrogen", amount = 8 },
-      { type = "fluid", name = "gas-deuterium", amount = 1 },
-      { type = "item", name = "uranium-238", amount = 8 },
-      { type = "item", name = "uranium-238", amount = 1 , probability = .7 },
-      { type = "item", name = "uranium-238", amount = 1 , probability = .4 },
-      { type = "item", name = "uranium-235", amount = 1 }
+      { type = "fluid", name = Hydrogen_name,  amount = 3 },
+      { type = "fluid", name = Deuterium_name, amount = 5 },
+      { type = "item",  name = "uranium-238",   amount = 8 },
+      { type = "item",  name = "uranium-238",   amount = 1,  probability = .7 },
+      { type = "item",  name = "uranium-238",   amount = 1,  probability = .4 },
+      { type = "item",  name = "uranium-235",   amount = 1 }
     },
     icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/deuterium-gas.png",
     subgroup = "fluid-recipes",
     order = "a[gas]-c[hydrogen]",
     allow_decomposition = true,
     icon_size = 32
-  }, ]],
+  },
+  {
+    type = "recipe",
+    pollution = 0,
+    name = "hybrid-fuel-cell",
+    category = "chemistry",
+    enable = false,
+    energy_required = 10,
+    ingredients =
+    {
+      { type = "fluid", name = Deuterium_name,   amount = 30 },
+      { type = "fluid", name = "liquid-hydrogen", amount = 100 },
+      { type = "item",  name = "uranium-238",     amount = 10 },
+      { type = "item",  name = "uranium-235",     amount = 1 },
+      { type = "item",  name = "iron-plate",      amount = 10 }
+    },
+    results =
+    {
+      { type = "item", name = "hybrid-fuel-cell", amount = 1 }
+    },
+    icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/hybrid-fuel-cell.png",
+    subgroup = "fluid-recipes",
+    order = "a[gas]-c[hydrogen]",
+    allow_decomposition = true,
+    icon_size = 64
+  },
   {
     type = "recipe",
     pollution = 0,
@@ -84,7 +109,7 @@ data:extend({
     },
     results =
     {
-      { type = "fluid", name = "gas-hydrogen", amount = 10 },
+      { type = "fluid", name = Hydrogen_name, amount = 10 },
       { type = "item",  name = "copper-ore",   amount = 1, probability = 0.1 },
       { type = "fluid", name = "crude-oil",    amount = 1, probability = 0.1 },
       { type = "item",  name = "iron-ore",     amount = 1, probability = 0.1 },
@@ -103,13 +128,13 @@ data:extend({
     pollution = 0,
     category = "chemistry",
     enable = false,
-    energy_required = 10,
+    energy_required = 40,
     ingredients =
     {
       { type = "fluid", name = "liquid-hydrogen", amount = 40 },
       { type = "item",  name = "uranium-235",     amount = 1, catalyst_amount = 1 }
     },
-    results ={
+    results = {
       { type = "item", name = "solid-hydrogen", amount = 20 },
       { type = "item", name = "uranium-235",    amount = 1, catalyst_amount = 1 }
     },
@@ -130,7 +155,7 @@ data:extend({
     ingredients =
     {
       { type = "fluid", name = "liquid-hydrogen", amount = 10 },
-      { type = "item",  name = "coal",         amount = 1 }
+      { type = "item",  name = "coal",            amount = 1 }
     },
     results =
     {
@@ -164,42 +189,19 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "empty-hydrogen-cell",
-    category = "advanced-crafting",
-    enable = false,
-    pollution = 0.5,
-    energy_required = 10,
-    ingredients =
-    {
-      { type = "item", name = "advanced-circuit", amount = 2 },
-      { type = "item", name = "engine-unit",      amount = 1 },
-      { type = "item", name = "empty-barrel",     amount = 3 },
-      { type = "item", name = "copper-plate",     amount = 10 },
-    },
-    results =
-    {
-      { type = "item", name = "empty-hydrogen-cell", amount = 1 }
-    },
-    icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/empty-hydrogen-cell.png",
-    subgroup = "raw-material",
-    allow_decomposition = false,
-    icon_size = 64
-  },
-  {
-    type = "recipe",
-    name = "hydrogen-cell",
+    name = Hydrogen_fuel_cell_name,
     pollution = 0.5,
     category = "chemistry",
     enable = false,
     energy_required = 100,
     ingredients =
     {
-      { type = "item", name = "empty-hydrogen-cell", amount = 1 },
-      { type = "fluid", name = "liquid-hydrogen",      amount = 22000 },
+      { type = "item", name = "solid-hydrogen",     amount = 1 },
+      { type = "fluid", name = "liquid-hydrogen",     amount = 1000 },
     },
     results =
     {
-      { type = "item", name = "hydrogen-cell", amount = 1 }
+      { type = "item", name = Hydrogen_fuel_cell_name, amount = 1 }
     },
     icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/hydrogen-cell.png",
     subgroup = "raw-material",
@@ -215,8 +217,8 @@ data:extend({
     energy_required = 100,
     ingredients =
     {
-      { type = "item", name = "iron-plate", amount = 1 },
-      { type = "fluid", name = "gas-hydrogen",      amount = 30 },
+      { type = "item",  name = "iron-plate",   amount = 1 },
+      { type = "fluid", name = Hydrogen_name, amount = 30 },
     },
     results =
     {
@@ -226,23 +228,23 @@ data:extend({
     subgroup = "raw-material",
     allow_decomposition = false,
     icon_size = 64
-  },{
-    type= "recipe",
-    name = "uranium-isotope-processing",
-    category = "centrifuging",
-    enable = false,
-    energy_required = 80,
-    ingredients = {
-      { type = "item",  name = "uranium-238",     amount = 20},
-      { type = "item", name = "solid-hydrogen", amount = 20 },
-    },
-    icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/uranium-isotope-processing.png",
-    subgroup = "raw-material",
-    results = {
-      { type = "item",  name = "uranium-235",     amount = 1},
-      { type = "item",  name = "uranium-238",     amount = 15},
-    },
-    allow_decomposition = false,
-    icon_size = 32
-  }
+  }, {
+  type = "recipe",
+  name = "uranium-isotope-processing",
+  category = "centrifuging",
+  enable = false,
+  energy_required = 80,
+  ingredients = {
+    { type = "item", name = "uranium-238",    amount = 20 },
+    { type = "item", name = "solid-hydrogen", amount = 20 },
+  },
+  icon = "__hydrogen-fuel-for-all-your-needs__/graphics/icons/uranium-isotope-processing.png",
+  subgroup = "raw-material",
+  results = {
+    { type = "item", name = "uranium-235", amount = 1 },
+    { type = "item", name = "uranium-238", amount = 15 },
+  },
+  allow_decomposition = false,
+  icon_size = 32
+}
 })
