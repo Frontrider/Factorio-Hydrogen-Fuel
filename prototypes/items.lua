@@ -33,7 +33,7 @@ data:extend(
         -- this is an eco friendly fuel source
         fuel_emissions_multiplier = 0,
         fuel_glow_color = { 181, 204, 19 },
-        icon_size = 32
+        icon_size = 64
     },
     {
         type = "item",
